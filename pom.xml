@@ -6,10 +6,12 @@
     <groupId>cn.GnaixEuy</groupId>
     <artifactId>gxschool_parent</artifactId>
     <packaging>pom</packaging>
+
     <modules>
         <module>service</module>
         <module>common</module>
     </modules>
+
     <version>0.0.1-SNAPSHOT</version>
     <name>gnaixeuy_parent</name>
     <description>gnaixeuy_parent</description>
@@ -183,49 +185,49 @@
         </dependencies>
     </dependencyManagement>
 
-    <!--    <build>-->
-    <!--        <plugins>-->
-    <!--            <plugin>-->
-    <!--                <groupId>org.springframework.boot</groupId>-->
-    <!--                <artifactId>spring-boot-maven-plugin</artifactId>-->
-    <!--            </plugin>-->
-    <!--        </plugins>-->
-    <!--    </build>-->
-    <!--    <repositories>-->
-    <!--        <repository>-->
-    <!--            <id>spring-milestones</id>-->
-    <!--            <name>Spring Milestones</name>-->
-    <!--            <url>https://repo.spring.io/milestone</url>-->
-    <!--            <snapshots>-->
-    <!--                <enabled>false</enabled>-->
-    <!--            </snapshots>-->
-    <!--        </repository>-->
-    <!--        <repository>-->
-    <!--            <id>spring-snapshots</id>-->
-    <!--            <name>Spring Snapshots</name>-->
-    <!--            <url>https://repo.spring.io/snapshot</url>-->
-    <!--            <releases>-->
-    <!--                <enabled>false</enabled>-->
-    <!--            </releases>-->
-    <!--        </repository>-->
-    <!--    </repositories>-->
-    <!--    <pluginRepositories>-->
-    <!--        <pluginRepository>-->
-    <!--            <id>spring-milestones</id>-->
-    <!--            <name>Spring Milestones</name>-->
-    <!--            <url>https://repo.spring.io/milestone</url>-->
-    <!--            <snapshots>-->
-    <!--                <enabled>false</enabled>-->
-    <!--            </snapshots>-->
-    <!--        </pluginRepository>-->
-    <!--        <pluginRepository>-->
-    <!--            <id>spring-snapshots</id>-->
-    <!--            <name>Spring Snapshots</name>-->
-    <!--            <url>https://repo.spring.io/snapshot</url>-->
-    <!--            <releases>-->
-    <!--                <enabled>false</enabled>-->
-    <!--            </releases>-->
-    <!--        </pluginRepository>-->
-    <!--    </pluginRepositories>-->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+    <repositories>
+        <repository>
+            <id>spring-milestones</id>
+            <name>Spring Milestones</name>
+            <url>https://repo.spring.io/milestone</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>spring-snapshots</id>
+            <name>Spring Snapshots</name>
+            <url>https://repo.spring.io/snapshot</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>spring-milestones</id>
+            <name>Spring Milestones</name>
+            <url>https://repo.spring.io/milestone</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+        <pluginRepository>
+            <id>spring-snapshots</id>
+            <name>Spring Snapshots</name>
+            <url>https://repo.spring.io/snapshot</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+        </pluginRepository>
+    </pluginRepositories>
 
 </project>
