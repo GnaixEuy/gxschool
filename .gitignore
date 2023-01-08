@@ -6,6 +6,9 @@ target/
 .mvn/wrapper
 mvnw
 mvnw.cmd
+/.env.dev
+/log/
+/service/service_oss/src/main/resources/application-dev.yml
 
 ### STS ###
 .apt_generated
@@ -34,3 +37,4 @@ build/
 
 ### VS Code ###
 .vscode/
+

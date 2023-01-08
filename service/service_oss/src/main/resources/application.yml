@@ -1,0 +1,23 @@
+#服务端口
+server:
+  port: 8002
+spring:
+  application:
+    name: service-oss
+  profiles:
+    active: dev
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+aliyun:
+  oss:
+    file:
+      endpoint:
+      key_id:
+      key_secret:
+      bucket_name:
+# 设置日志级别
+logging:
+  level:
+    root: warn
