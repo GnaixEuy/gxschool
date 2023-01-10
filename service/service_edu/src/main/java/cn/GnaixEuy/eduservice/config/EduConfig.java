@@ -20,6 +20,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @MapperScan(value = "cn.GnaixEuy.eduservice.mapper")
 public class EduConfig {
+
     @Bean
     public MybatisPlusInterceptor mybatisPlusInterceptor() {
         MybatisPlusInterceptor interceptor = new MybatisPlusInterceptor();
