@@ -20,15 +20,15 @@ import java.util.Date;
 public class MyMetaObjectHandler implements MetaObjectHandler {
     @Override
     public void insertFill(MetaObject metaObject) {
-        //gmtCreate传的是类中的属性名
-        this.setFieldValByName("gmtCreate", new Date(), metaObject);
-        this.setFieldValByName("gmtModified", new Date(), metaObject);
+        this.strictInsertFill(metaObject, "gmtCreate", Date.class, new Date());
+        this.strictInsertFill(metaObject, "gmtModified", Date.class, new Date());
     }
 
     @Override
     public void updateFill(MetaObject metaObject) {
+        this.strictUpdateFill(metaObject, "gmtModified", Date.class, new Date());
         this.setFieldValByName("gmtModified", new Date(), metaObject);
     }
-    
+
 }
 

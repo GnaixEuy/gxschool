@@ -1,6 +1,7 @@
 package cn.GnaixEuy.eduservice.mapper;
 
 import cn.GnaixEuy.eduservice.entity.EduCourse;
+import cn.GnaixEuy.eduservice.entity.vo.CoursePublishVo;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -16,4 +17,11 @@ import org.apache.ibatis.annotations.Mapper;
  */
 @Mapper
 public interface EduCourseMapper extends BaseMapper<EduCourse> {
+    /**
+     * 获取发布公开的课程信息
+     *
+     * @param courseId
+     * @return
+     */
+    CoursePublishVo getPublishCourseInfo(String courseId);
 }

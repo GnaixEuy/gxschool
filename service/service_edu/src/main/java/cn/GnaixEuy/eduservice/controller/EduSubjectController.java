@@ -26,7 +26,7 @@ import java.util.List;
 @RestController
 @RequestMapping(value = {"/eduservice/subject"})
 public class EduSubjectController {
-    private EduSubjectService subjectService;
+    private EduSubjectService eduSubjectService;
 
     /**
      * 添加课程分类
@@ -36,7 +36,7 @@ public class EduSubjectController {
     @PostMapping(value = {"addSubject"})
     public ResultVo addSubject(MultipartFile file) {
         // 获取上传的excel文件 MultipartFile
-        subjectService.saveSubject(file, subjectService);
+        this.eduSubjectService.saveSubject(file, this.eduSubjectService);
         return ResultVo.ok();
     }
 
@@ -47,14 +47,14 @@ public class EduSubjectController {
     @GetMapping(value = {"/getAllSubject"})
     public ResultVo getAllSubject() {
         //list集合泛型是一级分类，因为一级分类有他本身和二级分类的集合
-        List<OneSubject> list = subjectService.getAllOneTwoSubject();
+        List<OneSubject> list = this.eduSubjectService.getAllOneTwoSubject();
         return ResultVo.ok().data("list", list);
     }
 
 
     @Autowired
-    public void setSubjectService(EduSubjectService subjectService) {
-        this.subjectService = subjectService;
+    public void setEduSubjectService(EduSubjectService eduSubjectService) {
+        this.eduSubjectService = eduSubjectService;
     }
 }
 

@@ -1,7 +1,10 @@
 package cn.GnaixEuy.eduservice.service;
 
 import cn.GnaixEuy.eduservice.entity.EduChapter;
+import cn.GnaixEuy.eduservice.entity.chapter.ChapterVo;
 import com.baomidou.mybatisplus.extension.service.IService;
+
+import java.util.List;
 
 /**
  * <img src="http://blog.gnaixeuy.cn/wp-content/uploads/2022/09/倒闭.png"/>
@@ -14,5 +17,8 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @see <a href="https://github.com/GnaixEuy"> GnaixEuy的GitHub </a>
  */
 public interface EduChapterService extends IService<EduChapter> {
+    List<ChapterVo> getChapterVideoByCourseId(String courseId);
+
+    boolean deleteChapter(String chapterId);
 }
 

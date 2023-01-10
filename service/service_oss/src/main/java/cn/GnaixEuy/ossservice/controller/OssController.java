@@ -31,7 +31,7 @@ public class OssController {
 
     //上传头像的方法
     @ApiOperation(value = "文件上传")
-    @PostMapping("/upload")
+    @PostMapping(value = {""})
     public ResultVo uploadOssFile(@ApiParam(name = "file", value = "文件", required = true) MultipartFile file) {
         //获取上传文件 MultipartFile
         //返回上传路径
