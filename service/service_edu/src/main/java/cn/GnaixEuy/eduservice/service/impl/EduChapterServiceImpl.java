@@ -73,6 +73,16 @@ public class EduChapterServiceImpl extends ServiceImpl<EduChapterMapper, EduChap
         }
     }
 
+    /**
+     * 根据课程id删除章节
+     *
+     * @param courseId
+     */
+    @Override
+    public void removeChapterByCourseId(String courseId) {
+        baseMapper.delete(Wrappers.<EduChapter>lambdaQuery().eq(EduChapter::getCourseId, courseId));
+    }
+
     @Autowired
     public void setVideoService(EduVideoService videoService) {
         this.videoService = videoService;

@@ -5,8 +5,10 @@ import cn.GnaixEuy.eduservice.entity.EduCourseDescription;
 import cn.GnaixEuy.eduservice.entity.vo.CourseInfoVo;
 import cn.GnaixEuy.eduservice.entity.vo.CoursePublishVo;
 import cn.GnaixEuy.eduservice.mapper.EduCourseMapper;
+import cn.GnaixEuy.eduservice.service.EduChapterService;
 import cn.GnaixEuy.eduservice.service.EduCourseDescriptionService;
 import cn.GnaixEuy.eduservice.service.EduCourseService;
+import cn.GnaixEuy.eduservice.service.EduVideoService;
 import cn.GnaixEuy.servicebase.config.exception.BizException;
 import cn.GnaixEuy.servicebase.config.exception.ExceptionType;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -26,7 +28,9 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class EduCourseServiceImpl extends ServiceImpl<EduCourseMapper, EduCourse> implements EduCourseService {
-    private EduCourseDescriptionService courseDescriptionService;
+    private EduCourseDescriptionService eduCourseDescriptionService;
+    private EduVideoService eduVideoService;
+    private EduChapterService eduChapterService;
 
     /**
      * 保存课程信息
@@ -49,7 +53,7 @@ public class EduCourseServiceImpl extends ServiceImpl<EduCourseMapper, EduCourse
         EduCourseDescription CourseDescription = new EduCourseDescription();
         BeanUtils.copyProperties(courseInfoVo, CourseDescription);
         CourseDescription.setId(cid);
-        courseDescriptionService.save(CourseDescription);
+        this.eduCourseDescriptionService.save(CourseDescription);
         return cid;
     }
 
@@ -65,7 +69,7 @@ public class EduCourseServiceImpl extends ServiceImpl<EduCourseMapper, EduCourse
         CourseInfoVo courseInfoVo = new CourseInfoVo();
         BeanUtils.copyProperties(eduCourse, courseInfoVo);
         //查询描述表
-        EduCourseDescription courseDescription = this.courseDescriptionService.getById(courseId);
+        EduCourseDescription courseDescription = this.eduCourseDescriptionService.getById(courseId);
         BeanUtils.copyProperties(courseDescription, courseInfoVo);
         return courseInfoVo;
     }
@@ -86,7 +90,7 @@ public class EduCourseServiceImpl extends ServiceImpl<EduCourseMapper, EduCourse
         }
         EduCourseDescription courseDescription = new EduCourseDescription();
         BeanUtils.copyProperties(courseInfoVo, courseDescription);
-        courseDescriptionService.updateById(courseDescription);
+        this.eduCourseDescriptionService.updateById(courseDescription);
     }
 
     /**
@@ -99,9 +103,34 @@ public class EduCourseServiceImpl extends ServiceImpl<EduCourseMapper, EduCourse
         return baseMapper.getPublishCourseInfo(id);
     }
 
+    /**
+     * 删除课程
+     *
+     * @param courseId
+     */
+    @Override
+    public void removeCourse(String courseId) {
+        this.eduVideoService.removeVideoByCourseId(courseId);
+        this.eduChapterService.removeChapterByCourseId(courseId);
+        this.eduCourseDescriptionService.removeById(courseId);
+        int result = baseMapper.deleteById(courseId);
+        if (result == 0) {
+            throw new BizException(ExceptionType.DELETE_EXCEPTION);
+        }
+    }
 
     @Autowired
-    public void setCourseDescriptionService(EduCourseDescriptionService courseDescriptionService) {
-        this.courseDescriptionService = courseDescriptionService;
+    public void setEduCourseDescriptionService(EduCourseDescriptionService eduCourseDescriptionService) {
+        this.eduCourseDescriptionService = eduCourseDescriptionService;
+    }
+
+    @Autowired
+    public void setEduVideoService(EduVideoService eduVideoService) {
+        this.eduVideoService = eduVideoService;
+    }
+
+    @Autowired
+    public void setEduChapterService(EduChapterService eduChapterService) {
+        this.eduChapterService = eduChapterService;
     }
 }

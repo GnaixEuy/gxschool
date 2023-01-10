@@ -3,6 +3,7 @@ package cn.GnaixEuy.eduservice.service.impl;
 import cn.GnaixEuy.eduservice.entity.EduVideo;
 import cn.GnaixEuy.eduservice.mapper.EduVideoMapper;
 import cn.GnaixEuy.eduservice.service.EduVideoService;
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
@@ -18,4 +19,13 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class EduVideoServiceImpl extends ServiceImpl<EduVideoMapper, EduVideo> implements EduVideoService {
+    /**
+     * 根据课程id删除小节
+     *
+     * @param courseId
+     */
+    @Override
+    public void removeVideoByCourseId(String courseId) {
+        baseMapper.delete(Wrappers.<EduVideo>lambdaQuery().eq(EduVideo::getCourseId, courseId));
+    }
 }

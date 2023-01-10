@@ -1,7 +1,9 @@
 package cn.GnaixEuy.eduservice.service;
 
+import cn.GnaixEuy.eduservice.entity.EduCourse;
 import cn.GnaixEuy.eduservice.entity.vo.CourseInfoVo;
 import cn.GnaixEuy.eduservice.entity.vo.CoursePublishVo;
+import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
  * <img src="http://blog.gnaixeuy.cn/wp-content/uploads/2022/09/倒闭.png"/>
@@ -13,7 +15,7 @@ import cn.GnaixEuy.eduservice.entity.vo.CoursePublishVo;
  * @version 1.0.0
  * @see <a href="https://github.com/GnaixEuy"> GnaixEuy的GitHub </a>
  */
-public interface EduCourseService {
+public interface EduCourseService extends IService<EduCourse> {
     /**
      * 保存课程信息
      *
@@ -39,4 +41,9 @@ public interface EduCourseService {
      */
     CoursePublishVo publishCourseInfo(String id);
 
+
+    /**
+     * 删除课程
+     */
+    void removeCourse(String courseId);
 }

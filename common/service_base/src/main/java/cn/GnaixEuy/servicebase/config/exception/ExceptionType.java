@@ -20,6 +20,7 @@ public enum ExceptionType {
     BAD_REQUEST(400, "请求错误"),
     FORBIDDEN(403, "无权操作"),
     NOT_FOUND(404, "未找到"),
+    DELETE_EXCEPTION(10005, "删除失败"),
     FILE_EMPTY_EXCEPTION(20001, "文件数据为空"),
     CLASS_SUBJECT_ADD_EXCEPTION(20002, "添加课程分类失败"),
     CLASS_INFO_ADD_EXCEPTION(20003, "添加课程信息失败"),

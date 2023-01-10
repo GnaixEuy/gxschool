@@ -17,8 +17,20 @@ import java.util.List;
  * @see <a href="https://github.com/GnaixEuy"> GnaixEuy的GitHub </a>
  */
 public interface EduChapterService extends IService<EduChapter> {
+    /**
+     * 课程大纲列表,根据课程id进行查询
+     */
     List<ChapterVo> getChapterVideoByCourseId(String courseId);
 
+    /**
+     * 删除章节的方法
+     */
     boolean deleteChapter(String chapterId);
+
+
+    /**
+     * 根据课程id删除章节
+     */
+    void removeChapterByCourseId(String courseId);
 }
 

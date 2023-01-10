@@ -14,5 +14,10 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @see <a href="https://github.com/GnaixEuy"> GnaixEuy的GitHub </a>
  */
 public interface EduVideoService extends IService<EduVideo> {
+
+    /**
+     * 根据课程id删除小节
+     */
+    void removeVideoByCourseId(String courseId);
 }
 

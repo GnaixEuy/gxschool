@@ -1,6 +1,7 @@
 package cn.GnaixEuy.eduservice.controller;
 
 import cn.GnaixEuy.commonutils.ResultVo;
+import cn.GnaixEuy.eduservice.entity.EduCourse;
 import cn.GnaixEuy.eduservice.entity.vo.CourseInfoVo;
 import cn.GnaixEuy.eduservice.entity.vo.CoursePublishVo;
 import cn.GnaixEuy.eduservice.service.EduCourseService;
@@ -8,6 +9,8 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * <img src="http://blog.gnaixeuy.cn/wp-content/uploads/2022/09/倒闭.png"/>
@@ -61,6 +64,38 @@ public class EduCourseController {
     public ResultVo getPublishCourseInfo(@PathVariable String id) {
         CoursePublishVo coursePublishVo = this.eduCourseService.publishCourseInfo(id);
         return ResultVo.ok().data("publishCourse", coursePublishVo);
+    }
+
+    /**
+     * 课程最终发布
+     * 修改课程状态
+     */
+    @PostMapping(value = {"publishCourse/{id}"})
+    public ResultVo publishCourse(@PathVariable String id) {
+        EduCourse eduCourse = new EduCourse();
+        eduCourse.setId(id);
+        eduCourse.setStatus("Normal");//设置课程发布状态
+        this.eduCourseService.updateById(eduCourse);
+        return ResultVo.ok();
+    }
+
+    /**
+     * 删除课程
+     */
+    @DeleteMapping(value = {"{courseId}"})
+    public ResultVo deleteCourse(@PathVariable String courseId) {
+        this.eduCourseService.removeCourse(courseId);
+        return ResultVo.ok();
+    }
+
+    /**
+     * 课程列表 基本实现
+     * TODO 完善条件查询带分页
+     */
+    @GetMapping(value = {""})
+    public ResultVo getCourseList() {
+        List<EduCourse> list = this.eduCourseService.list(null);
+        return ResultVo.ok().data("list", list);
     }
 
     @Autowired
