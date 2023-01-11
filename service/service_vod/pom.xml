@@ -24,9 +24,13 @@
             <groupId>com.aliyun</groupId>
             <artifactId>aliyun-java-sdk-vod</artifactId>
         </dependency>
+        <!--        <dependency>-->
+        <!--            <groupId>com.aliyun</groupId>-->
+        <!--            <artifactId>aliyun-sdk-vod-upload</artifactId>-->
+        <!--        </dependency>-->
         <dependency>
             <groupId>com.aliyun</groupId>
-            <artifactId>aliyun-sdk-vod-upload</artifactId>
+            <artifactId>aliyun-java-vod-upload</artifactId>
         </dependency>
         <dependency>
             <groupId>com.alibaba</groupId>
@@ -40,7 +44,6 @@
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
         </dependency>
-
         <dependency>
             <groupId>joda-time</groupId>
             <artifactId>joda-time</artifactId>

@@ -44,6 +44,7 @@ public class EduCourseServiceImpl extends ServiceImpl<EduCourseMapper, EduCourse
         //再用mapstruct就是故意折磨自己
         System.out.println(courseInfoVo);
         BeanUtils.copyProperties(courseInfoVo, eduCourse);
+        eduCourse.setIsDeleted(0);
         int insert = baseMapper.insert(eduCourse);
         if (insert == 0) {
             throw new BizException(ExceptionType.CLASS_INFO_ADD_EXCEPTION);
