@@ -2,6 +2,7 @@ package cn.GnaixEuy.edu.mapper;
 
 import cn.GnaixEuy.edu.entity.EduCourse;
 import cn.GnaixEuy.edu.entity.vo.CoursePublishVo;
+import cn.GnaixEuy.edu.entity.vo.CourseWebVo;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -24,4 +25,9 @@ public interface EduCourseMapper extends BaseMapper<EduCourse> {
      * @return
      */
     CoursePublishVo getPublishCourseInfo(String courseId);
+
+    /**
+     * 根据课程id，编写sql语句查询课程信息
+     */
+    CourseWebVo getBaseCourseInfo(String courseId);
 }

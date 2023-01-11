@@ -31,7 +31,6 @@ hystrix:
       execution:
         isolation:
           thread:
-            #默认的连接超时时间1秒,若1秒没有返回数据,自动的触发降级逻辑
             timeoutInMilliseconds: 6000
 # 设置日志级别
 logging:

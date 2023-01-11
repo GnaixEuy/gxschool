@@ -1,4 +1,4 @@
-package cn.GnaixEuy.edu.controller;
+package cn.GnaixEuy.edu.controller.front;
 
 import cn.GnaixEuy.commonutils.ResultVo;
 import cn.GnaixEuy.edu.entity.EduCourse;
