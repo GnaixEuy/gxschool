@@ -28,4 +28,6 @@ public class EduVideoServiceImpl extends ServiceImpl<EduVideoMapper, EduVideo> i
     public void removeVideoByCourseId(String courseId) {
         baseMapper.delete(Wrappers.<EduVideo>lambdaQuery().eq(EduVideo::getCourseId, courseId));
     }
+
+
 }
