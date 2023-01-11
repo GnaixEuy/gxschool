@@ -8,7 +8,7 @@ mvnw
 mvnw.cmd
 /.env.dev
 /log/
-/service/service_oss/src/main/resources/application-dev.yml
+application-dev.yml
 
 ### STS ###
 .apt_generated

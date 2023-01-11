@@ -16,7 +16,7 @@ spring:
     username: root
     password: 123456
 mybatis-plus:
-  mapper-locations: classpath:cn/GnaixEuy/eduservice/mapper/xml/*.xml
+  mapper-locations: classpath:cn/GnaixEuy/edu/mapper/xml/*.xml
 # 设置日志级别
 logging:
   level:
