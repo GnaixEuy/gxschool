@@ -1,9 +1,6 @@
 package cn.GnaixEuy.eduservice.entity;
 
-import com.baomidou.mybatisplus.annotation.FieldFill;
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.*;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -56,6 +53,8 @@ public class EduCourse implements Serializable {
     @ApiModelProperty(value = "课程状态 Draft未发布  Normal已发布")
     private String status;
     @ApiModelProperty(value = "逻辑删除 1（true）已删除， 0（false）未删除")
+    @TableLogic
+    @TableField(select = false)
     private Integer isDeleted;
     @ApiModelProperty(value = "创建时间")
     @TableField(fill = FieldFill.INSERT)

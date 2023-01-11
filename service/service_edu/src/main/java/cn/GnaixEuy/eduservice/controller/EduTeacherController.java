@@ -44,7 +44,9 @@ public class EduTeacherController {
         return ResultVo.ok().data("items", list);
     }
 
-    //逻辑删除讲师
+    /**
+     * 逻辑删除讲师
+     */
     @ApiOperation(value = "根据ID删除讲师")
     @DeleteMapping(value = {"{id}"})
     public ResultVo removeTeacher(@PathVariable("id") String id) {
