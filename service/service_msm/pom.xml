@@ -5,16 +5,20 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>cn.GnaixEuy</groupId>
-        <artifactId>common</artifactId>
+        <artifactId>service</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>common_utils</artifactId>
-
+    <artifactId>service_msm</artifactId>
+    
     <dependencies>
         <dependency>
-            <groupId>io.jsonwebtoken</groupId>
-            <artifactId>jjwt</artifactId>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.aliyun</groupId>
+            <artifactId>aliyun-java-sdk-core</artifactId>
         </dependency>
     </dependencies>
 </project>
