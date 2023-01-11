@@ -42,6 +42,7 @@
         <spring-cloud-dependencies.version>Hoxton.SR12</spring-cloud-dependencies.version>
         <swagger.version>3.0.0</swagger.version>
         <velocity.version>2.0</velocity.version>
+        <commons-pool2.version>2.11.1</commons-pool2.version>
     </properties>
 
     <dependencyManagement>

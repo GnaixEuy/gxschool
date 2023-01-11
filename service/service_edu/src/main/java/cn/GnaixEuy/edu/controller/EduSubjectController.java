@@ -21,8 +21,8 @@ import java.util.List;
  * @version 1.0.0
  * @see <a href="https://github.com/GnaixEuy"> GnaixEuy的GitHub </a>
  */
-@CrossOrigin
 @Api(tags = "课程分类管理")
+@CrossOrigin
 @RestController
 @RequestMapping(value = {"/eduservice/subject"})
 public class EduSubjectController {
