@@ -82,7 +82,7 @@ public class EduCourseController {
     /**
      * 删除课程
      */
-    @DeleteMapping(value = {"{courseId}"})
+    @DeleteMapping(value = {"deleteCourse/{courseId}"})
     public ResultVo deleteCourse(@PathVariable String courseId) {
         this.eduCourseService.removeCourse(courseId);
         return ResultVo.ok();
