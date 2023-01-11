@@ -46,13 +46,9 @@ public class VodController {
     @DeleteMapping(value = {"removeAlyVideo/{id}"})
     public ResultVo removeAliyunVideo(@PathVariable String id) {
         try {
-            //初始化对象
             DefaultAcsClient client = InitVodCilent.initVodClient(ConstantVodUtils.ACCESS_KEY_ID, ConstantVodUtils.ACCESS_KEY_SECRET);
-            //创建删除视频request对象
             DeleteVideoRequest request = new DeleteVideoRequest();
-            //向request设置视频id
             request.setVideoIds(id);
-            //调用初始化对象的方法实现删除
             client.getAcsResponse(request);
             return ResultVo.ok();
         } catch (Exception e) {

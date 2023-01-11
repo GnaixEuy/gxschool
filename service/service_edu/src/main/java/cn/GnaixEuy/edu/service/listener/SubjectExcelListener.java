@@ -24,9 +24,9 @@ import lombok.NoArgsConstructor;
  * @see <a href="https://github.com/GnaixEuy"> GnaixEuy的GitHub </a>
  */
 @Data
-@EqualsAndHashCode(callSuper = true)
 @AllArgsConstructor
 @NoArgsConstructor
+@EqualsAndHashCode(callSuper = true)
 public class SubjectExcelListener extends AnalysisEventListener<SubjectData> {
     public EduSubjectService subjectService;
 
@@ -47,8 +47,6 @@ public class SubjectExcelListener extends AnalysisEventListener<SubjectData> {
         }
         //获取一级分类id值
         String pid = existOneSubject.getId();
-        //添加二级分类
-        //判断二级分类是否重复
         EduSubject existTwoSubject = this.existTwoSubject(subjectService, subjectData.getTwoSubjectName(), pid);
         if (existTwoSubject == null) {
             //没有相同的一级分类就进行添加
