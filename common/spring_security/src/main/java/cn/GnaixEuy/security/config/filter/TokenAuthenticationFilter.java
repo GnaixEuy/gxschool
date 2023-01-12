@@ -32,8 +32,8 @@ import java.util.List;
  * @see <a href="https://github.com/GnaixEuy"> GnaixEuy的GitHub </a>
  */
 public class TokenAuthenticationFilter extends BasicAuthenticationFilter {
-    private TokenManager tokenManager;
-    private RedisTemplate redisTemplate;
+    private final TokenManager tokenManager;
+    private final RedisTemplate redisTemplate;
 
     public TokenAuthenticationFilter(AuthenticationManager authManager, TokenManager tokenManager, RedisTemplate redisTemplate) {
         super(authManager);
@@ -45,7 +45,7 @@ public class TokenAuthenticationFilter extends BasicAuthenticationFilter {
     protected void doFilterInternal(HttpServletRequest req, HttpServletResponse res, FilterChain chain)
             throws IOException, ServletException {
         logger.info("=================" + req.getRequestURI());
-        if (req.getRequestURI().indexOf("admin") == -1) {
+        if (!req.getRequestURI().contains("admin")) {
             chain.doFilter(req, res);
             return;
         }
@@ -76,7 +76,6 @@ public class TokenAuthenticationFilter extends BasicAuthenticationFilter {
                 SimpleGrantedAuthority authority = new SimpleGrantedAuthority(permissionValue);
                 authorities.add(authority);
             }
-
             if (!StringUtils.isEmpty(userName)) {
                 return new UsernamePasswordAuthenticationToken(userName, token, authorities);
             }

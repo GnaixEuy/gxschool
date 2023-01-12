@@ -31,10 +31,10 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class TokenWebSecurityConfig extends WebSecurityConfigurerAdapter {
-    private UserDetailsService userDetailsService;
-    private TokenManager tokenManager;
-    private DefaultPasswordEncoder defaultPasswordEncoder;
-    private RedisTemplate redisTemplate;
+    private final UserDetailsService userDetailsService;
+    private final TokenManager tokenManager;
+    private final DefaultPasswordEncoder defaultPasswordEncoder;
+    private final RedisTemplate redisTemplate;
 
     @Autowired
     public TokenWebSecurityConfig(UserDetailsService userDetailsService, DefaultPasswordEncoder defaultPasswordEncoder,

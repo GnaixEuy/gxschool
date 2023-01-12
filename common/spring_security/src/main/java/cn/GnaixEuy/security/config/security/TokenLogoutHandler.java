@@ -2,6 +2,7 @@ package cn.GnaixEuy.security.config.security;
 
 import cn.GnaixEuy.commonutils.ResultVo;
 import cn.GnaixEuy.commonutils.utils.ResponseUtil;
+import lombok.AllArgsConstructor;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.logout.LogoutHandler;
@@ -19,15 +20,10 @@ import javax.servlet.http.HttpServletResponse;
  * @version 1.0.0
  * @see <a href="https://github.com/GnaixEuy"> GnaixEuy的GitHub </a>
  */
+@AllArgsConstructor
 public class TokenLogoutHandler implements LogoutHandler {
-
     private final TokenManager tokenManager;
-    private RedisTemplate redisTemplate;
-
-    public TokenLogoutHandler(TokenManager tokenManager, RedisTemplate redisTemplate) {
-        this.tokenManager = tokenManager;
-        this.redisTemplate = redisTemplate;
-    }
+    private final RedisTemplate redisTemplate;
 
     @Override
     public void logout(HttpServletRequest request, HttpServletResponse response, Authentication authentication) {
