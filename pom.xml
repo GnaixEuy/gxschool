@@ -10,6 +10,7 @@
     <modules>
         <module>service</module>
         <module>common</module>
+        <module>infrastructure</module>
     </modules>
     <name>gnaixeuy_parent</name>
     <description>gnaixeuy_parent</description>

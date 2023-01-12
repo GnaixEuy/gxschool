@@ -1,0 +1,23 @@
+server:
+  port: 8222
+spring:
+  application:
+    name: service-gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: service-acl
+          uri: lb://service-acl
+          predicates: Path=/*/acl/**
+        - id: service-edu
+          uri: lb://service-edu
+          predicates: Path=/eduservice/**
+        - id: service-msm
+          uri: lb://service-msm
+          predicates: Path=/edumsm/**
